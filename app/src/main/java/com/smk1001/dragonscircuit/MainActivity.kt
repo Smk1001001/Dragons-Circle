@@ -151,8 +151,16 @@ private fun DashboardScreen(player: PlayerStats, modifier: Modifier = Modifier) 
         )
         StatSummaryCard(player)
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp), modifier = Modifier.fillMaxWidth()) {
-            QuickActionCard(title = "Training", description = "Sharpen your combos")
-            QuickActionCard(title = "Recovery", description = "Patch up after the arena")
+            QuickActionCard(
+                title = "Training",
+                description = "Sharpen your combos",
+                modifier = Modifier.weight(1f)
+            )
+            QuickActionCard(
+                title = "Recovery",
+                description = "Patch up after the arena",
+                modifier = Modifier.weight(1f)
+            )
         }
         AttributeGrid(player)
     }
@@ -317,10 +325,10 @@ private fun StatSummaryCard(player: PlayerStats) {
 }
 
 @Composable
-private fun QuickActionCard(title: String, description: String) {
+private fun QuickActionCard(title: String, description: String, modifier: Modifier = Modifier) {
     Card(
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
-        modifier = Modifier.weight(1f)
+        modifier = modifier
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(text = title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
