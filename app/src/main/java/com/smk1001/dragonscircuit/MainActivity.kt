@@ -304,6 +304,7 @@ private fun SettingsScreen(player: PlayerStats, modifier: Modifier = Modifier) {
                 Text(text = "Hit Effects: High")
                 Text(text = "Vibration: Enabled")
             }
+            LinearProgressIndicator(progress = { progress })
         }
     }
 }
